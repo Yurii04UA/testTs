@@ -1,0 +1,15 @@
+{
+  "parser": "@babel/eslint-parser",
+  "rules": {
+    "no-unused-vars": "warn",
+    "no-console":"warn",
+    "quotes": [
+      2,
+      "single",
+      { "avoidEscape": true, "allowTemplateLiterals": true }
+    ]
+  },
+  "parserOptions": {
+    "requireConfigFile": false
+  }
+}
