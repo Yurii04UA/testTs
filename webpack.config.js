@@ -1,11 +1,11 @@
-const path = require('path')
-const HTMLWebpackPlugin = require('html-webpack-plugin')
-const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
-const TerserPlugin = require('terser-webpack-plugin')
-const ESLintPlugin = require('eslint-webpack-plugin')
+const path = require('path');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
+const ESLintPlugin = require('eslint-webpack-plugin');
 
-const isDev = process.env.NODE_ENV === 'development'
-const isProd = !isDev
+const isDev = process.env.NODE_ENV === 'development';
+const isProd = !isDev;
 
 const optimization = () => {
     const config = {
@@ -14,18 +14,18 @@ const optimization = () => {
         },
         minimize: false,
         minimizer: [],
-    }
+    };
 
     if (isProd) {
-        config.minimizer = [new CssMinimizerPlugin(), new TerserPlugin()]
-        config.minimize = true
+        config.minimizer = [new CssMinimizerPlugin(), new TerserPlugin()];
+        config.minimize = true;
     }
 
-    return config
-}
+    return config;
+};
 
 const filename = (extensions) =>
-    isDev ? `[name].${extensions}` : `[name].[hash].${extensions}`
+    isDev ? `[name].${extensions}` : `[name].[hash].${extensions}`;
 
 module.exports = {
     mode: 'development',
@@ -44,6 +44,12 @@ module.exports = {
     devServer: {
         port: 8080,
         watchFiles: ['src/index.html'],
+        client: {
+            overlay: {
+                errors: true,
+                warnings: false,
+            },
+        },
     },
     devtool: isDev ? 'source-map' : 'inline-source-map',
     plugins: [
@@ -75,4 +81,4 @@ module.exports = {
             },
         ],
     },
-}
+};

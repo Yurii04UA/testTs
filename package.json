@@ -7,7 +7,7 @@
     "dev": "cross-env NODE_ENV=development webpack --mode development ",
     "build": "cross-env NODE_ENV=production webpack --mode production",
     "watch": "cross-env NODE_ENV=development webpack --mode development --watch",
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development --open",
     "prepare": "husky install"
   },
   "keywords": [],
@@ -45,5 +45,9 @@
   "lint-staged": {
     "*.{ts,js,css,md}": "prettier --write",
     "*.{js,css,md}": "prettier --write"
+  },
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2"
   }
 }

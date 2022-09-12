@@ -1,8 +1,11 @@
 {
-  "parser": "@babel/eslint-parser",
+  "parser": "@typescript-eslint/parser",
+  "extends":  [
+    "plugin:@typescript-eslint/recommended",  // Uses the recommended rules from the @typescript-eslint/eslint-plugin
+  ],
   "rules": {
-    "no-unused-vars": "warn",
-    "no-console":"warn",
+    "semi": 2,
+    // "no-console":"warn",
     "quotes": [
       2,
       "single",
